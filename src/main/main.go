@@ -4,6 +4,7 @@ import (
 	"fmt"
 	//"demo2"
 	"demo3"
+	"demo4"
 )
 func main(){
 	//public函数需要首字母大写
@@ -59,5 +60,8 @@ func main(){
 	demo3.InitStruct()
 	fmt.Printf("\n")
 	demo3.InitInstance()
+	a := [...]int{0,1,2,3,4,5}
+	demo4.ReverseSlice(a[:])
+	fmt.Println(a)
 }
 
