@@ -2,12 +2,8 @@
 package main
 
 import (
+	"demo3"
 	"fmt"
-	//"demo2"
-	// "demo3"
-	// "demo4"
-	// "strings"
-	"demo5"
 )
 
 func init() {
@@ -79,15 +75,37 @@ func main() {
 	// 	fmt.Println("yep")
 	// }
 
+	//结构体方法的值传递
+	var cat demo3.Cat
+	cat.Age = 1
+	cat.Color = "white"
+	cat.Name = "babe"
+	cat.Speed = 2.0
+	cat.Eat()
+	fmt.Println(cat.Run(3.2))
+	//指针类型的方法
+	node := new(demo3.IntLinkList)
+	head := node
+	for i := 0; i < 3; i++ {
+		node.Value = i
+		node.Tail = new(demo3.IntLinkList)
+		node = node.Tail
+	}
+	fmt.Println(head.Sum())
+	//已有类型方法
+	var num4 demo3.Integer = 10
+	fmt.Println(num4.Increace())
 	//init
-	fmt.Println("main()...")
-	f := demo5.My_closed_func()
-	fmt.Println(f(2))
-	fmt.Println(f(2))
+	// fmt.Println("main()...")
+	// f := demo5.My_closed_func()
+	// fmt.Println(f(2))
+	// fmt.Println(f(2))
 
-	f2 := demo5.MakeSufix(".jpg")
-	fmt.Println(f2("mypicture"))
-	fmt.Println(f2("mypic.jpg"))
+	//closed_func
+	// f2 := demo5.MakeSufix(".jpg")
+	// fmt.Println(f2("mypicture"))
+	// fmt.Println(f2("mypic.jpg"))
 
-	demo5.Func_defer(1, 2, 3, 4, 5)
+	//defer
+	//demo5.Func_defer(1, 2, 3, 4, 5)
 }
