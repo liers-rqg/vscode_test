@@ -7,6 +7,7 @@ import (
 	// "demo3"
 	// "demo4"
 	// "strings"
+	"demo5"
 )
 
 func init() {
@@ -80,4 +81,13 @@ func main() {
 
 	//init
 	fmt.Println("main()...")
+	f := demo5.My_closed_func()
+	fmt.Println(f(2))
+	fmt.Println(f(2))
+
+	f2 := demo5.MakeSufix(".jpg")
+	fmt.Println(f2("mypicture"))
+	fmt.Println(f2("mypic.jpg"))
+
+	demo5.Func_defer(1, 2, 3, 4, 5)
 }
