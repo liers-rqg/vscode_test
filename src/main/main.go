@@ -2,10 +2,11 @@
 package main
 
 import (
-	// "demo3"
-	// "demo5"
 	"demo6"
 	"fmt"
+	"math/rand"
+	"sort"
+	"strconv"
 )
 
 func init() {
@@ -118,28 +119,48 @@ func main() {
 	//demo5.Func_defer(1, 2, 3, 4, 5)
 
 	//封装
-	person := demo6.NewPerson("zhangsan")
-	person.SetAge(20)
-	person.SetSalary(4000)
-	fmt.Println(person)
+	// person := demo6.NewPerson("zhangsan")
+	// person.SetAge(20)
+	// person.SetSalary(4000)
+	// fmt.Println(person)
 
 	//继承（不建议使用多重继承）
-	pupil := new(demo6.Pupil)
-	granduate := new(demo6.Granduate)
 	//如果继承了多个匿名结构体，必须指明是哪个结构体的变量
 	//如果嵌套一个有名结构体，则必须指明是哪个结构体变量
-	pupil.Name = "tom"
-	pupil.SetAge(8)
-	pupil.SetScore(98.8)
-	fmt.Println(pupil.ShowInfo())
-	granduate.Name = "holly"
-	granduate.SetAge(24)
-	granduate.SetScore(80.9)
-	fmt.Println(granduate.ShowInfo())
+	// pupil := new(demo6.Pupil)
+	// granduate := new(demo6.Granduate)
+	// pupil.Name = "tom"
+	// pupil.SetAge(8)
+	// pupil.SetScore(98.8)
+	// fmt.Println(pupil.ShowInfo())
+	// granduate.Name = "holly"
+	// granduate.SetAge(24)
+	// granduate.SetScore(80.9)
+	// fmt.Println(granduate.ShowInfo())
 
 	//接口
-	children := new(demo6.Children)
-	adult := new(demo6.Adult)
-	demo6.Recieve(children)
-	demo6.Recieve(adult)
+	// children := new(demo6.Children)
+	// adult := new(demo6.Adult)
+	// demo6.Recieve(children)
+	// demo6.Recieve(adult)
+
+	//利用接口实现结构体排序
+	var heros demo6.HeroSlice
+	for i := 0; i < 10; i++ {
+		hero := demo6.Hero{
+			Name:  "tom" + strconv.Itoa(i),
+			Score: float64(rand.Intn(100)),
+		}
+		heros = append(heros, hero)
+	}
+	fmt.Println("排序前...")
+	for _, v := range heros {
+
+		fmt.Println(v)
+	}
+	fmt.Println("排序后...")
+	sort.Sort(&heros)
+	for _, v := range heros {
+		fmt.Println(v)
+	}
 }
