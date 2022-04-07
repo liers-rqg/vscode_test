@@ -2,8 +2,9 @@
 package main
 
 import (
-	"demo3"
-	"demo5"
+	// "demo3"
+	// "demo5"
+	"demo6"
 	"fmt"
 )
 
@@ -77,28 +78,31 @@ func main() {
 	// }
 
 	//结构体方法的值传递
-	var cat demo3.Cat
-	cat.Age = 1
-	cat.Color = "white"
-	cat.Name = "babe"
-	cat.Speed = 2.0
-	cat.Eat()
-	fmt.Println(cat.Run(3.2))
-	//指针类型的方法
-	node := new(demo3.IntLinkList)
-	head := node
-	for i := 0; i < 3; i++ {
-		node.Value = i
-		node.Tail = new(demo3.IntLinkList)
-		node = node.Tail
-	}
-	fmt.Println(head.Sum())
-	//已有类型方法
-	var num4 demo3.Integer = 10
-	fmt.Println(num4.Increace())
+	// var cat demo3.Cat
+	// cat.Age = 1
+	// cat.Color = "white"
+	// cat.Name = "babe"
+	// cat.Speed = 2.0
+	// cat.Eat()
+	// fmt.Println(cat.Run(3.2))
 
-	var stu = demo5.NewStudent("tom", 3, "21927055")
-	fmt.Println(stu)
+	//指针类型的方法
+	// node := new(demo3.IntLinkList)
+	// head := node
+	// for i := 0; i < 3; i++ {
+	// 	node.Value = i
+	// 	node.Tail = new(demo3.IntLinkList)
+	// 	node = node.Tail
+	// }
+	// fmt.Println(head.Sum())
+
+	//已有类型方法
+	// var num4 demo3.Integer = 10
+	// fmt.Println(num4.Increace())
+
+	// var stu = demo5.NewStudent("tom", 3, "21927055")
+	// fmt.Println(stu)
+
 	//init
 	// fmt.Println("main()...")
 	// f := demo5.My_closed_func()
@@ -112,4 +116,30 @@ func main() {
 
 	//defer
 	//demo5.Func_defer(1, 2, 3, 4, 5)
+
+	//封装
+	person := demo6.NewPerson("zhangsan")
+	person.SetAge(20)
+	person.SetSalary(4000)
+	fmt.Println(person)
+
+	//继承（不建议使用多重继承）
+	pupil := new(demo6.Pupil)
+	granduate := new(demo6.Granduate)
+	//如果继承了多个匿名结构体，必须指明是哪个结构体的变量
+	//如果嵌套一个有名结构体，则必须指明是哪个结构体变量
+	pupil.Name = "tom"
+	pupil.SetAge(8)
+	pupil.SetScore(98.8)
+	fmt.Println(pupil.ShowInfo())
+	granduate.Name = "holly"
+	granduate.SetAge(24)
+	granduate.SetScore(80.9)
+	fmt.Println(granduate.ShowInfo())
+
+	//接口
+	children := new(demo6.Children)
+	adult := new(demo6.Adult)
+	demo6.Recieve(children)
+	demo6.Recieve(adult)
 }
