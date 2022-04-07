@@ -3,6 +3,7 @@ package main
 
 import (
 	"demo3"
+	"demo5"
 	"fmt"
 )
 
@@ -95,6 +96,9 @@ func main() {
 	//已有类型方法
 	var num4 demo3.Integer = 10
 	fmt.Println(num4.Increace())
+
+	var stu = demo5.NewStudent("tom", 3, "21927055")
+	fmt.Println(stu)
 	//init
 	// fmt.Println("main()...")
 	// f := demo5.My_closed_func()
