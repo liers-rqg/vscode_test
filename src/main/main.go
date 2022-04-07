@@ -4,9 +4,6 @@ package main
 import (
 	"demo6"
 	"fmt"
-	"math/rand"
-	"sort"
-	"strconv"
 )
 
 func init() {
@@ -145,22 +142,25 @@ func main() {
 	// demo6.Recieve(adult)
 
 	//利用接口实现结构体排序
-	var heros demo6.HeroSlice
-	for i := 0; i < 10; i++ {
-		hero := demo6.Hero{
-			Name:  "tom" + strconv.Itoa(i),
-			Score: float64(rand.Intn(100)),
-		}
-		heros = append(heros, hero)
-	}
-	fmt.Println("排序前...")
-	for _, v := range heros {
+	// var heros demo6.HeroSlice
+	// for i := 0; i < 10; i++ {
+	// 	hero := demo6.Hero{
+	// 		Name:  "tom" + strconv.Itoa(i),
+	// 		Score: float64(rand.Intn(100)),
+	// 	}
+	// 	heros = append(heros, hero)
+	// }
+	// fmt.Println("排序前...")
+	// for _, v := range heros {
 
-		fmt.Println(v)
-	}
-	fmt.Println("排序后...")
-	sort.Sort(&heros)
-	for _, v := range heros {
-		fmt.Println(v)
-	}
+	// 	fmt.Println(v)
+	// }
+	// fmt.Println("排序后...")
+	// sort.Sort(&heros)
+	// for _, v := range heros {
+	// 	fmt.Println(v)
+	// }
+
+	//统计文件中字符个数
+	demo6.CountChar("src/demo6/test.txt")
 }

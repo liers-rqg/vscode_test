@@ -1,0 +1,3 @@
+hello,my friend
+这是 一个 测试文件！
+里面有很多个byte 和 123
