@@ -3,9 +3,11 @@ package main
 
 import (
 	//"demo7"
+	"demo9"
 	"fmt"
 	"runtime"
 	"strconv"
+	"sync"
 	//"testing"
 )
 
@@ -168,7 +170,23 @@ func main() {
 	//demo6.CountChar("src/demo6/test.txt")
 	num := runtime.NumCPU()
 	fmt.Println("cpu number: " + strconv.Itoa(num))
-
+	numChan := make(chan int, 100)
+	primeChan := make(chan int, 500)
+	wg := &(sync.WaitGroup{})
+	wg.Add(5)
+	go demo9.PutRoutine(500, numChan, wg)
+	//time.Sleep(time.Second)
+	for i := 0; i < 4; i++ {
+		go demo9.IsPrimeRoutine(numChan, primeChan, wg)
+		//time.Sleep(time.Second)
+	}
+	wg.Wait()
+	close(primeChan)
+	wg.Add(1)
+	go demo9.GetPrime(primeChan, wg)
+	//time.Sleep(time.Second)
+	wg.Wait()
+	fmt.Println("执行完成")
 }
 
 //单元测试

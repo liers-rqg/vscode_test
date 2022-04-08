@@ -8,5 +8,6 @@ demo3、demo4
 demo5、demo6
 ## 单元测试
 demo7
-## 协程
-demo8
+## 协程与管道
+demo8 demo9
+waitgroup使用的时候需要向协程中传入*sync.WaitGroup
