@@ -2,9 +2,11 @@
 package main
 
 import (
-	"demo7"
+	//"demo7"
 	"fmt"
-	"testing"
+	"runtime"
+	"strconv"
+	//"testing"
 )
 
 func init() {
@@ -164,14 +166,16 @@ func main() {
 
 	//统计文件中字符个数
 	//demo6.CountChar("src/demo6/test.txt")
+	num := runtime.NumCPU()
+	fmt.Println("cpu number: " + strconv.Itoa(num))
 
 }
 
 //单元测试
-func TestAddUpper(t *testing.T) {
-	res := demo7.AddUpper(10)
-	if res != 55 {
-		t.Fatalf("执行错误，结果为%v\n", res)
-	}
-	t.Logf("执行正确")
-}
+// func TestAddUpper(t *testing.T) {
+// 	res := demo7.AddUpper(10)
+// 	if res != 55 {
+// 		t.Fatalf("执行错误，结果为%v\n", res)
+// 	}
+// 	t.Logf("执行正确")
+// }
